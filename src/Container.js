@@ -4,7 +4,6 @@ import './Container.css';
 
 
 const Container = resos => {
-console.log(resos)
 const resosToUse = resos.resos
 const reservations = resosToUse.map(reso => {
   return <Card key={reso.id}
@@ -19,7 +18,6 @@ const reservations = resosToUse.map(reso => {
 
   return (
     <div className='container'>
-        <p>Container</p>
         {reservations}
     </div>
   )

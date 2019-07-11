@@ -20,7 +20,7 @@ constructor() {
   }
 
   addReso=(newReso)=> {
-    this.setState({reservations : [...reservations, newReso]})
+    this.setState({reservations : [...this.state.reservations, newReso]})
   }
 
 
@@ -31,8 +31,8 @@ constructor() {
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
             {this.state.error && <p>{this.state.erro}</p>}
-            <Container resos={this.state.reservations} />
             <Form addReso={this.addReso} />
+            <Container resos={this.state.reservations} />
         </div>
         <div className='resy-container'>
           
