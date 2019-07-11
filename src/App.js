@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Container from './Container.js'
+import Container from './Container.js';
+import Form from './Form.js';
 
 class App extends Component {
 constructor() {
@@ -18,6 +19,10 @@ constructor() {
     .catch(error => this.setState({error}))
   }
 
+  addReso=(newReso)=> {
+    this.setState({reservations : [...reservations, newReso]})
+  }
+
 
   render() {
     console.log(this.state.reservations)
@@ -27,6 +32,7 @@ constructor() {
         <div className='resy-form'>
             {this.state.error && <p>{this.state.erro}</p>}
             <Container resos={this.state.reservations} />
+            <Form addReso={this.addReso} />
         </div>
         <div className='resy-container'>
           
