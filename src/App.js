@@ -39,7 +39,10 @@ constructor() {
     .catch(error => this.setState({error}))
   }
 
-
+deleteReso = (id)=> {
+  const filteredResos = this.state.reservations.filter(reso=> reso.id !==id)
+  this.setState({reservations: filteredResos})
+}
 
   render() {
     console.log(this.state.reservations)
@@ -49,7 +52,7 @@ constructor() {
         <div className='resy-form'>
             {this.state.error && <p>{this.state.erro}</p>}
             <Form addReso={this.addReso} />
-            <Container resos={this.state.reservations} />
+            <Container resos={this.state.reservations} deleteReso={this.deleteReso}/>
         </div>
         <div className='resy-container'>
           

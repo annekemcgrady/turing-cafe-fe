@@ -3,7 +3,7 @@ import Card from './Card.js';
 import './Container.css';
 
 
-const Container = resos => {
+const Container = (resos, deleteReso) => {
 const resosToUse = resos.resos
 const reservations = resosToUse.map(reso => {
   return <Card 
@@ -11,6 +11,7 @@ const reservations = resosToUse.map(reso => {
               name ={reso.name} 
               time={reso.time}
               number={reso.number}
+              deleteReso={deleteReso}
               />
 
 })
