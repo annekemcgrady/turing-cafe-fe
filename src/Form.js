@@ -31,12 +31,12 @@ render() {
     <label htmlFor="name">Name</label>
     <input type='text' name='name'value={this.state.title} onChange={this.handleChange}></input>
     <label htmlFor="date">Date</label>
-    <input type='date' name='date' value={this.state.date} onChange={this.handleChange}></input>
+    <input type='text' name='date' value={this.state.date} onChange={this.handleChange}></input>
     <label htmlFor="time">Time</label>
-    <input type='time' name='time' value={this.state.time} onChange={this.handleChange}></input>
+    <input type='text' name='time' value={this.state.time} onChange={this.handleChange}></input>
     <label htmlFor="number">Number</label>
-    <input type='text' name='number' value={this.state.number} onChange={this.handleChange}></input>
-    <button onClick={this.submitReso}>Submit Reservation</button>
+    <input type='text' name='number' value={(this.state.number)} onChange={this.handleChange}></input>
+    <button onClick={this.submitReso}>Make Reservation</button>
     </form>
   )
 }

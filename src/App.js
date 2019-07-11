@@ -20,8 +20,25 @@ constructor() {
   }
 
   addReso=(newReso)=> {
-    this.setState({reservations : [...this.state.reservations, newReso]})
+    console.log('APP', newReso)
+    // this.setState({reservations : [...this.state.reservations, newReso]})
+    this.postNewReso(newReso)
   }
+
+  postNewReso =(newReso) => {
+    const options = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newReso)
+    }
+
+    fetch('http://localhost:3001/api/v1/reservations', options)
+    .then(response => response.json())
+    .then(res => fetch(`http://localhost:3001/api/v1/reservations/${res.id}`))
+    .then(thisNewReso => this.setState({reservations: [...this.state.reservations, thisNewReso]}))
+    .catch(error => this.setState({error}))
+  }
+
 
 
   render() {
